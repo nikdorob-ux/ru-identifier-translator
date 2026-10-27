@@ -1,0 +1,8 @@
+{
+  "entryPoints":["src/extension.ts","src/selection/TextTarget.ts","src/parsing/IdentifierSplitter.ts","src/parsing/KindDetector.ts","src/naming/NamingStyle.ts","src/naming/Formatter.ts","src/naming/Keywords.ts","src/translation/TranslationProvider.ts","src/translation/MyMemoryProvider.ts","src/translation/GoogleProvider.ts","src/translation/TranslationService.ts","src/validation/IdentifierValidator.ts","src/ui/Picker.ts"],
+  "out":"docs/api",
+  "tsconfig":"tsconfig.json",
+  "excludePrivate":true,
+  "excludeInternal":true,
+  "readme":"none"
+}

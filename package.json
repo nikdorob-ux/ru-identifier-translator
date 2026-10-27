@@ -1,0 +1,45 @@
+{
+  "name": "ru-identifier-translator",
+  "displayName": "RuIdentifier Translator",
+  "description": "Translate Russian identifiers into English names following the active language naming style.",
+  "version": "1.0.0",
+  "publisher": "student-project",
+  "license": "MIT",
+  "repository": { "type": "git", "url": "https://github.com/USERNAME/ru-identifier-translator.git" },
+  "engines": { "vscode": "^1.85.0", "node": ">=18" },
+  "categories": ["Programming Languages", "Other"],
+  "activationEvents": ["onLanguage:typescript", "onLanguage:javascript", "onLanguage:python", "onLanguage:java", "onLanguage:c", "onLanguage:cpp", "onCommand:ruIdentifier.translate", "onCommand:ruIdentifier.translateAs"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {"command":"ruIdentifier.translate","title":"Translate Russian Identifier"},
+      {"command":"ruIdentifier.translateAs","title":"Translate Identifier As…"}
+    ],
+    "keybindings": [{"command":"ruIdentifier.translate","key":"ctrl+alt+t","mac":"cmd+alt+t","when":"editorTextFocus"}],
+    "menus": {"editor/context": [{"command":"ruIdentifier.translate","group":"navigation@10","when":"editorTextFocus"}]},
+    "configuration": {
+      "title":"RuIdentifier Translator",
+      "properties": {
+        "ruIdentifier.defaultStyle":{"type":"string","enum":["camelCase","snake_case","PascalCase","UPPER_SNAKE_CASE"],"default":"camelCase","description":"Naming style used for languages without a built-in profile."},
+        "ruIdentifier.askWhenMultiple":{"type":"boolean","default":true,"description":"Show a picker when a word has multiple translation candidates."},
+        "ruIdentifier.requestTimeoutMs":{"type":"number","minimum":100,"maximum":60000,"default":5000,"description":"Timeout for each translation provider request."},
+        "ruIdentifier.providers":{"type":"array","items":{"type":"string","enum":["mymemory","google"]},"default":["mymemory","google"],"description":"Translation providers in priority order."}
+      }
+    }
+  },
+  "scripts": {
+    "compile":"tsc -p .",
+    "watch":"tsc -watch -p .",
+    "test":"vitest run",
+    "docs":"typedoc",
+    "package":"vsce package"
+  },
+  "devDependencies": {
+    "@types/node":"^22.10.0",
+    "@types/vscode":"^1.85.0",
+    "@vscode/vsce":"^2.26.1",
+    "typedoc":"^0.27.6",
+    "typescript":"^5.7.2",
+    "vitest":"^2.1.8"
+  }
+}

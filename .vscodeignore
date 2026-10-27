@@ -1,0 +1,22 @@
+.vscode/**
+.vscode-test/**
+tests/**
+src/**
+node_modules/**
+**/*.map
+**/*.ts
+!out/**
+!README.md
+!LICENSE
+!package.json
+!out/**
+!README.md
+!LICENSE
+!package.json
+!**/docs/**
+!tsconfig.json
+!typedoc.json
+!.gitignore
+!.npmignore
+Текстовый документ.txt
+report/**
